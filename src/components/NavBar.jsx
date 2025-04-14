@@ -3,7 +3,8 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function NavBar() {
     return (
-        <div className='bg-gray-950 text-white p-5 flex justify-between items-center fixed top-0 w-full '>
+        
+        <div className='bg-gray-950 text-white p-5 flex justify-between items-center fixed w-full  '>
             <div>
                 <h1 className='text-2xl font-semibold'>Ramzi.<span className='text-blue-500'>Borz</span></h1>
             </div>
@@ -15,7 +16,7 @@ export default function NavBar() {
                     <li><a href="/about">About</a></li>
                     <li><a href="/Education&Experience">Education & Experience</a></li>
                     <li><a href="/Projects">Projects</a></li>
-                    <li  ><a className=' flex items-center bg-blue-500 px-3 py-1 rounded-md shadow-[0_0_10px_rgba(59,130,246,0.7)]  shadow-blue-500 border-blue-400 border-2 ' href="/Contact">Contact
+                    <li  ><a className=' flex items-center bg-blue-500 px-3 py-1 rounded-md shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#33CCCC,0_0_15px_#33CCCC,0_0_30px_#33CCCC]  shadow-blue-500 border-blue-400 border-2 ' href="/Contact">Contact
 
                         <IoIosArrowForward size={24} />
 
