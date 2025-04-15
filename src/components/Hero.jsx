@@ -1,5 +1,5 @@
 import React from 'react'
-import borz from '../assets/borz1.png'
+import borz from '../assets/borzz.png'
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
