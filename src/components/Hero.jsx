@@ -8,8 +8,8 @@ import { FaXTwitter } from "react-icons/fa6";
 export default function Hero() {
     return (
         <>
-            <div className='bg-gray-950 flex  items-center-safe w-full px-6  '>
-                <div className='flex flex-col w-1/2 '>
+            <div className='bg-gray-950 flex flex-col md:flex-row  items-center justify-between  w-full px-6 pt-20  '>
+                <div className='flex flex-col w-full md:w-1/2 '>
                     <h1 className='text-white md:text-6xl text-4xl font-semibold'>Hi👋,I'm</h1>
                     <h1 className='text-blue-500 md:text-6xl text-4xl font-semibold'>Ramzi Borz</h1>
                     <h3 className='text-white text-2xl my-5'>Full-Stack Developer | Laravel&Next Stack Enthusiast</h3>

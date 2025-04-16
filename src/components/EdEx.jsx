@@ -5,11 +5,11 @@ export default function EdEx() {
     <div className='bg-gray-950  py-10'>
 
       <h1 className='text-center text-gray-300 md:text-6xl text-4xl font-semibold'>Education & Experience</h1>
-      <div className='flex w-full mt-10 px-10 gap-10'>
-        <div className='flex flex-col w-1/2 gap-10'>
+      <div className=' flex flex-col  md:flex-row  w-full mt-10 px-10 gap-10'>
+        <div className='flex flex-col w-full md:w-1/2 gap-10'>
 
           <h3 className='text-gray-300 font-semibold text-2xl'>Education</h3>
-          <div className='bg-gray-800 w-fit p-5 flex  gap-3 rounded-md'>
+          <div className='bg-gray-800 w-fit p-5 md:flex flex flex-col   gap-3 rounded-md'>
             <p className='text-5xl'>🎓</p>
             <span className='text-gray-400'>
               <h2 className='text-gray-300 text-2xl font-semibold'>Higher School of Computer Science SBA</h2>
@@ -19,7 +19,7 @@ export default function EdEx() {
             </span>
           </div>
 
-          <div className='bg-gray-800 w-fit p-5 flex  gap-3 rounded-md'>
+          <div className='bg-gray-800 w-fit p-5 md:flex flex flex-col   gap-3 rounded-md'>
             <p className='text-5xl'>🎓</p>
             <span className='text-gray-400'>
               <h2 className='text-gray-300 text-2xl font-semibold'>High school Omar Harayeg</h2>
@@ -33,9 +33,9 @@ export default function EdEx() {
 
 
         </div>
-        <div className='flex flex-col w-1/2 gap-10'>
+        <div className='flex flex-col md:w-1/2 w-full gap-10'>
           <h3 className='text-gray-300 font-semibold text-2xl'>Experience</h3>
-          <div className='bg-gray-800 w-fit p-5 flex  gap-3 rounded-md'>
+          <div className='bg-gray-800 w-fit p-5 md:flex flex flex-col   gap-3 rounded-md'>
             <p className='text-5xl'>💻</p>
             <span className='text-gray-400'>
               <h2 className='text-gray-300 text-2xl font-semibold'>Sarl FlamboSoft (InterShip)</h2>
