@@ -11,13 +11,16 @@ function App() {
 
   return (
     <>
-    <NavBar />
-    <Hero />
-    <About /> 
-    <EdEx />
-    <Project />
-    <Contact />
-    <Footer /> 
+      <div className="overflow-x-hidden max-w-screen scroll-smooth">
+        <NavBar />
+        <Hero />
+        <About />
+        <EdEx />
+        <Project />
+        <Contact />
+        <Footer />
+      </div>
+
     </>
 
   )
