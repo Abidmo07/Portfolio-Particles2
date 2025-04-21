@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import {motion} from "framer-motion"
+import cv from '../assets/CV.pdf';
 
 export default function Hero() {
     return (
@@ -31,10 +32,11 @@ export default function Hero() {
                     whileInView={{x:0,opacity:1}}
                     transition={{duration:0.5,delay:0.6}} 
                     className='text-gray-500'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam deleniti, libero odit debitis, ab est itaque, quasi sed iure fugiat repellat? Ducimus quidem minus non? Illum eum labore suscipit dicta!</motion.p>
-                    <motion.button
+                    <motion.a
                     initial={{x:-100,opacity:0}}
                     whileInView={{x:0,opacity:1}}
                     transition={{duration:0.5,delay:0.8}} 
+                    href={cv}
                     className=' cursor-pointer flex items-center bg-blue-500 w-fit px-3 py-2 rounded-md gap-2 my-5 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#33CCCC,0_0_15px_#33CCCC,0_0_30px_#33CCCC]  shadow-blue-500 border-blue-400 border-2 ' type="button">
 
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -42,7 +44,7 @@ export default function Hero() {
                         </svg>
 
                         <p className='text-white font-normal'>Download CV</p>
-                    </motion.button>
+                    </motion.a>
 
                     <motion.div
                     initial={{x:-100,opacity:0}}
