@@ -10,7 +10,7 @@ import cv from '../assets/CV.pdf';
 export default function Hero() {
     return (
         <>
-            <div className='bg-gray-950 flex flex-col md:flex-row  items-center justify-between  w-full px-6 pt-20  '>
+            <div className='bg-gray-950  flex flex-col md:flex-row  items-center justify-between  w-full px-6 pt-20   '>
                 <div className='flex flex-col w-full md:w-1/2 '>
                     <motion.h1 
                     initial={{x:-300,opacity:0}}
