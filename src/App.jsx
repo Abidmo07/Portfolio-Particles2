@@ -10,14 +10,6 @@ import Project from "./components/Project"
 function App() {
   return (
     <>
-
-
-
-
-
-
-
-
       <NavBar />
       <Hero />
       <About />
@@ -25,12 +17,6 @@ function App() {
       <Project />
       <Contact />
       <Footer />
-
-
-
-
-
-
     </>
   );
 }

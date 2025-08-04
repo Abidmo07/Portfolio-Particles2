@@ -1,17 +1,19 @@
 import React from 'react'
 import borz from '../assets/borzz.png'
+import ramzi from "../assets/ramzi.png"
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import {motion} from "framer-motion"
-import cv from '../assets/CV.pdf';
+import cv from '../assets/ramzi_cv.pdf';
+import { ImOpera } from 'react-icons/im';
 
 export default function Hero() {
     return (
         <>
-            <div className='bg-gray-950  flex flex-col md:flex-row  items-center justify-between  w-full px-6 pt-20   '>
-                <div className='flex flex-col w-full md:w-1/2 '>
+            <div className='bg-gray-950  flex flex-col md:flex-row  items-center justify-between  w-full px-6 py-20   '>
+                <div className='flex flex-col w-full md:w-1/2 pl-5 '>
                     <motion.h1 
                     initial={{x:-300,opacity:0}}
                     whileInView={{x:0,opacity:1}}
@@ -58,13 +60,31 @@ export default function Hero() {
                     </motion.div>
 
                 </div>
-                <motion.div
-                initial={{opacity:0, scale:0.5}}
-                whileInView={{opacity:1, scale:1}}
-                transition={{duration:1.4, delay:0}} 
-                className='flex justify-center items-center w-1/2'>
-                    <img  src={borz} alt="" />
-                </motion.div>
+             <motion.div
+    initial={{opacity:0, scale:0.5}}
+    whileInView={{opacity:1, scale:1}}
+    transition={{duration:1.4, delay:0}} 
+    className='flex justify-center items-center w-full md:w-1/2 relative'>
+    
+    {/* Animated gradient border */}
+    <div className="relative p-1 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 animate-pulse">
+        <div className="bg-gray-950 rounded-full p-2">
+            <img 
+                className='w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl shadow-blue-500/50' 
+                src={ramzi} 
+                alt="Ramzi Borz" 
+            />
+        </div>
+    </div>
+    
+    {/* Floating particles effect */}
+    <div className="absolute inset-0 -z-10">
+        <div className="absolute top-10 left-10 w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+        <div className="absolute top-20 right-16 w-1 h-1 bg-purple-400 rounded-full animate-ping"></div>
+        <div className="absolute bottom-16 left-20 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-1 h-1 bg-blue-300 rounded-full animate-bounce delay-75"></div>
+    </div>
+</motion.div>
 
             </div>
         </>
