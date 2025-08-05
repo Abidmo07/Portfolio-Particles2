@@ -34,10 +34,20 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className=' bg-gray-950 w-full  md:w-1/2 border-2 p-10 border-blue-500 rounded-lg shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#33CCCC,0_0_15px_#33CCCC,0_0_30px_#33CCCC]  shadow-blue-500 space-y-6'>
 
-          <p className='text-gray-200' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eaque repellat qui molestias unde optio a amet beatae quas sapiente rem explicabo pariatur nostrum, minima at natus fuga quos esse architecto quod nobis, repudiandae temporibus culpa et! Eligendi, hic recusandae. Quia inventore aliquid nam numquam cupiditate atque, ducimus enim nulla!</p>
-          <p className='text-gray-200' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eaque repellat qui molestias unde optio a amet beatae quas sapiente rem explicabo pariatur nostrum, minima at natus fuga quos esse architecto quod nobis, repudiandae temporibus culpa et! Eligendi, hic recusandae. Quia inventore aliquid nam numquam cupiditate atque, ducimus enim nulla!</p>
-          <p className='text-gray-200' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eaque repellat qui molestias unde optio a amet beatae quas sapiente rem explicabo pariatur nostrum, minima at natus fuga quos esse architecto quod nobis, repudiandae temporibus culpa et! Eligendi, hic recusandae. Quia inventore aliquid nam numquam cupiditate atque, ducimus enim nulla!</p>
-          <p className='text-gray-200' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eaque repellat qui molestias unde optio a amet beatae quas sapiente rem explicabo pariatur nostrum, minima at natus fuga quos esse architecto quod nobis, repudiandae temporibus culpa et! Eligendi, hic recusandae. Quia inventore aliquid nam numquam cupiditate atque, ducimus enim nulla!</p>
+<p className="text-gray-200">
+  I’m a passionate full-stack web developer and computer science student at ESI SBA, driven by a constant curiosity to explore new technologies and deliver elegant, user-centric solutions. With a strong foundation in Laravel and React, I specialize in building robust e-commerce platforms and responsive web applications tailored to client needs.
+</p>
+<p className="text-gray-200">
+  My expertise extends to crafting seamless cash-on-delivery workflows and integrating third-party delivery APIs, ensuring both simplicity for customers and efficiency for administrators. I take pride in designing intuitive interfaces with Blade, Elementor, and Tailwind CSS, backed by clean, maintainable code.
+</p>
+<p className="text-gray-200">
+  Beyond web development, I’m a network enthusiast working towards CCNA certification and an IoT hobbyist who loves prototyping smart devices. This blend of software, networking, and hardware experience helps me deliver end-to-end solutions—from backend APIs to connected devices.
+</p>
+<p className="text-gray-200">
+  Anchored by my Salafi Muslim values, I approach every project with integrity, attention to detail, and a commitment to continuous learning—whether that’s mastering TypeScript, improving my English and French skills, or exploring the latest tools that keep me at the forefront of web innovation.
+</p>
+
+
           <h3 className='text-blue-500 font-semibold text-2xl'>My Skills</h3>
           <div className='flex w-full justify-center   md:flex items-center  gap-6'>
             <motion.div

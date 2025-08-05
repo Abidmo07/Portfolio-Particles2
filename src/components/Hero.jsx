@@ -33,7 +33,7 @@ export default function Hero() {
                     initial={{x:-100,opacity:0}}
                     whileInView={{x:0,opacity:1}}
                     transition={{duration:0.5,delay:0.6}} 
-                    className='text-gray-500'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam deleniti, libero odit debitis, ab est itaque, quasi sed iure fugiat repellat? Ducimus quidem minus non? Illum eum labore suscipit dicta!</motion.p>
+                    className='text-gray-500'>A dedicated full-stack web developer and fifth-year computer science student at ESI SBA. Skilled in Laravel, FilamentPHP, React.js, and Tailwind CSS, with hands-on experience building multi-vendor e-commerce platforms, integrating delivery APIs. Passionate about clean code, SOLID principles, and continuous learning—currently exploring TypeScript, Next.js while pursuing CCNA certification and prototyping IoT solutions.</motion.p>
                     <motion.a
                     initial={{x:-100,opacity:0}}
                     whileInView={{x:0,opacity:1}}
@@ -53,10 +53,9 @@ export default function Hero() {
                     whileInView={{x:0,opacity:1}}
                     transition={{duration:0.5,delay:0.8}} 
                     className='flex items-center gap-5'>
-                        <a href="#"><FaLinkedin className='text-white' size={25} /></a>
-                        <a href="#"><FaGithub className='text-white' size={25} /></a>
-                        <a href="#"><FaFacebook className='text-white' size={25} /></a>
-                        <a href="#"><FaXTwitter className='text-white' size={25} /></a>
+                        <a href="https://www.linkedin.com/in/mohamed-abid-4061b8325/"><FaLinkedin className='text-white' size={25} /></a>
+                        <a href="https://github.com/Abidmo07"><FaGithub className='text-white' size={25} /></a>
+                        <a href="https://www.facebook.com/mohamed.abid.610647?locale=fr_FR"><FaFacebook className='text-white' size={25} /></a>
                     </motion.div>
 
                 </div>

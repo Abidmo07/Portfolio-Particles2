@@ -12,6 +12,7 @@ import chat from '../assets/chat.png'
 import movie from '../assets/movie.png'
 import port from '../assets/port.png'
 import store from '../assets/store.png'
+import ai from '../assets/ai.png'
 
 
 export default function Project() {
@@ -38,7 +39,7 @@ export default function Project() {
       description: "Cash-on-delivery online store with delivery pricing by wilaya and a simple order system.",
       techUsed: ["Laravel", "Nextjs", "filment"],
       prev: "#",
-      git: "https://github.com/Abidmo07/Ecom-DZ"
+      git: "https://github.com/Abidmo07/Ecom-DZ.git"
     },
     {
       img: port,
@@ -49,21 +50,14 @@ export default function Project() {
       git: "https://github.com/Abidmo07/Portfolio-Particles.git"
     },
     {
-      img: "https://via.placeholder.com/400x200.png?text=To-Do+App",
+      img: ai,
       name: "Borz AI",
-      description: "A full-stack to-do app using React and a Laravel API, allowing CRUD operations on tasks.",
+      description: "A full-stack web app that simulate chatgpt in text generation using deepseek model through OpenRouterAPI",
       techUsed: ["Nextjs", "Laravel API","OpenRouterAPI"],
       prev: "#",
-      git: "https://github.com/yourusername/todo-app"
+      git: "https://github.com/Abidmo07/BorzAI.git"
     },
-    {
-      img: "https://via.placeholder.com/400x200.png?text=Weather+App",
-      name: "Weather App",
-      description: "A simple weather dashboard using OpenWeatherMap API with city search and live data.",
-      techUsed: ["React", "Axios", "OpenWeatherMap API"],
-      prev: "#",
-      git: "https://github.com/yourusername/weather-app"
-    }
+
   ]
 
   return (
