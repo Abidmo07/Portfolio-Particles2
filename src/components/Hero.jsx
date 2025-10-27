@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import {motion} from "framer-motion"
-import cv from '../assets/ramzi_cv.pdf';
+import cv from '../assets/CV.pdf';
 import { ImOpera } from 'react-icons/im';
 
 export default function Hero() {

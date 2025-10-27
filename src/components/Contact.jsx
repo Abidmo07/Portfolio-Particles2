@@ -32,7 +32,7 @@ export default function Contact() {
 
                     <div className='space-y-3'>
                         <h2 className='text-gray-300 text-2xl font-semibold'>Email</h2>
-                        <p className='text-blue-500 hover:underline cursor-pointer text-lg'>Abidmo2003@gmail.com</p>
+                        <p className='text-blue-500 hover:underline cursor-pointer text-lg'>abidmo2003@gmail.com</p>
                     </div>
 
                     <div className='space-y-3'>
