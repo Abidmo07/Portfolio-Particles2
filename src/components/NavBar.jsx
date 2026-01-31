@@ -1,86 +1,93 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { Link } from 'react-scroll';
-
-
+import gsap from 'gsap';
 
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
+    const navRef = useRef(null);
+    const linksRef = useRef([]);
+
+    useEffect(() => {
+        // Entrance animation
+        gsap.fromTo(navRef.current,
+            { y: -100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+        );
+
+        gsap.fromTo(linksRef.current,
+            { y: -20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, delay: 0.5, ease: "power2.out" }
+        );
+    }, []);
+
+    const addToRefs = (el) => {
+        if (el && !linksRef.current.includes(el)) {
+            linksRef.current.push(el);
+        }
+    };
 
     return (
-        <div className='bg-gray-950 text-white p-3   flex justify-between items-center fixed w-full z-50 '>
+        <nav ref={navRef} className='glass fixed w-full z-50 px-6 py-4 flex justify-between items-center text-white'>
             {/* Logo */}
-            <div >
-                <h1 className='text-2xl font-semibold'>
-                    Ramzi.<span className='text-blue-500'>Borz</span>
+            <div className='relative z-50'>
+                <h1 className='text-3xl font-bold tracking-tighter cursor-pointer select-none'>
+                    Ramzi<span className='text-[var(--accent-cyan)]'>.Borz</span>
                 </h1>
             </div>
 
             {/* Desktop Links */}
-            <ul className='font-semibold text-xl hidden md:flex items-center gap-7'>
-                <li><a className=' hover:text-blue-500 hover:duration-300' href="/">Home</a></li>
-                <li><a
-                   href='#about'
-                    className=' hover:text-blue-500 hover:duration-300 cursor-pointer'>About</a></li>
-                <li><a
-                  href='#edex'
-                    className=' hover:text-blue-500 hover:duration-300 cursor-pointer' >Education & Experience</a></li>
-                <li><a
-                   href='#projects'
-                    className=' hover:text-blue-500 hover:duration-300 cursor-pointer' >Projects</a></li>
-                <li>
-                    <a
-                        href='#contact'
-                        className='flex items-center gap-1 bg-blue-500 px-3 py-1 rounded-md shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#33CCCC,0_0_15px_#33CCCC,0_0_30px_#33CCCC] shadow-blue-500 border-blue-400 border-2'
+            <ul className='hidden md:flex items-center gap-8 font-medium text-lg'>
+                {['Home', 'About', 'Education & Experience', 'Projects'].map((item, index) => (
+                    <li key={index} ref={addToRefs}>
+                        <Link
+                            to={item === 'Home' ? 'hero' : item === 'Education & Experience' ? 'edex' : item.toLowerCase()}
+                            smooth={true}
+                            duration={1000}
+                            className='relative group cursor-pointer hover:text-[var(--accent-cyan)] transition-colors'
+                        >
+                            {/* Animated Underline */}
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-cyan)] transition-all group-hover:w-full"></span>
+                            {item}
+                        </Link>
+                    </li>
+                ))}
 
+                {/* Contact Button */}
+                <li ref={addToRefs}>
+                    <Link
+                        to='contact'
+                        smooth={true}
+                        duration={1000}
+                        className='flex items-center gap-2 px-5 py-2 bg-[var(--accent-cyan)] text-black font-bold rounded-full transition-all hover:shadow-[0_0_20px_rgba(0,242,234,0.6)] hover:scale-105 active:scale-95 cursor-pointer'
                     >
-                        Contact <IoIosArrowForward size={24} />
-                    </a>
+                        Contact <IoIosArrowForward size={20} />
+                    </Link>
                 </li>
             </ul>
 
             {/* Mobile Menu Button */}
-            <IoMenu
-                onClick={() => setIsOpen(true)}
-                size={28}
-                className='md:hidden cursor-pointer'
-            />
+            <div className='md:hidden z-50' onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? <IoMdClose size={32} /> : <IoMenu size={32} />}
+            </div>
 
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className='bg-gray-950 fixed top-0 right-0 w-3/4 h-screen p-5 md:hidden z-40 border-t border-gray-700'>
-                    <IoMdClose onClick={() => setIsOpen(false)} className='cursor-pointer' size={24} />
-                    <ul className='flex flex-col gap-7 text-lg font-semibold mt-12'>
-                        <li><a href="/">Home</a></li>
-                        <li><a
-                        href='#about'  
-                        >About</a></li>
-                        <li><Link
-                            to='edex'
-                            smooth={true}
-                            duration={1000}
-                        >Education & Experience</Link></li>
-                        <li><Link
-                            to='projects'
-                            smooth={true}
-                            duration={1000}
-                        >Projects</Link></li>
-                        <li>
-                            <Link
-                                to='contact'
-                                smooth={true}
-                                duration={1000}
-                                className='flex items-center w-fit gap-1 bg-blue-500 px-3 py-1 rounded-md shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#33CCCC,0_0_15px_#33CCCC,0_0_30px_#33CCCC] shadow-blue-500 border-blue-400 border-2'
-
-                            >
-                                Contact <IoIosArrowForward size={24} />
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            )}
-        </div>
+            {/* Mobile Menu Overlay */}
+            <div className={`fixed inset-0 bg-[#050510] flex flex-col justify-center items-center gap-10 transition-transform duration-500 ${isOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+                {['Home', 'About', 'Education & Experience', 'Projects', 'Contact'].map((item, index) => (
+                    <Link
+                        key={index}
+                        to={item === 'Home' ? 'hero' : item === 'Education & Experience' ? 'edex' : item.toLowerCase()}
+                        smooth={true}
+                        duration={1000}
+                        onClick={() => setIsOpen(false)}
+                        className='text-2xl font-bold hover:text-[var(--accent-cyan)] cursor-pointer'
+                    >
+                        {item}
+                    </Link>
+                ))}
+            </div>
+        </nav>
     );
 }

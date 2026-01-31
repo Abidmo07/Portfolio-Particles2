@@ -1,91 +1,132 @@
-import React from 'react'
+import React, { useLayoutEffect, useRef } from 'react';
 import borz from '../assets/borzz.png'
 import ramzi from "../assets/ramzi.png"
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import {motion} from "framer-motion"
+import { FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa";
 import cv from '../assets/CV.pdf';
-import { ImOpera } from 'react-icons/im';
+import gsap from 'gsap';
+import Particle from './Particle';
 
 export default function Hero() {
+    const comp = useRef(null);
+    const imageRef = useRef(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            // Text Stagger
+            gsap.from(".hero-text", {
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.5
+            });
+
+            // Image Entrance
+            gsap.from(".hero-image", {
+                scale: 0.5,
+                opacity: 0,
+                duration: 1.5,
+                ease: "elastic.out(1, 0.5)",
+                delay: 0.8
+            });
+
+        }, comp);
+        return () => ctx.revert();
+    }, []);
+
+    const handleMouseMove = (e) => {
+        if (!imageRef.current) return;
+        const { left, top, width, height } = imageRef.current.getBoundingClientRect();
+        const x = (e.clientX - left - width / 2) / 25;
+        const y = (e.clientY - top - height / 2) / 25;
+
+        gsap.to(imageRef.current, {
+            rotationY: x,
+            rotationX: -y,
+            transformPerspective: 1000,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+    };
+
+    const handleMouseLeave = () => {
+        if (!imageRef.current) return;
+        gsap.to(imageRef.current, {
+            rotationY: 0,
+            rotationX: 0,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+    };
+
     return (
-        <>
-            <div className='bg-gray-950  flex flex-col md:flex-row  items-center justify-between  w-full px-6 py-20   '>
-                <div className='flex flex-col w-full md:w-1/2 pl-5 '>
-                    <motion.h1 
-                    initial={{x:-300,opacity:0}}
-                    whileInView={{x:0,opacity:1}}
-                    transition={{duration:0.5,delay:0.2}} 
-                    className='text-white md:text-6xl text-4xl font-semibold'>Hi👋,I'm</motion.h1>
-                    <motion.h1
-                    initial={{x:-300,opacity:0}}
-                    whileInView={{x:0,opacity:1}}
-                    transition={{duration:0.5,delay:0.4}} 
-                    className='text-blue-500 md:text-6xl text-4xl font-semibold'>Ramzi Borz</motion.h1>
-                    <motion.h3
-                    initial={{x:-100,opacity:0}}
-                    whileInView={{x:0,opacity:1}}
-                    transition={{duration:0.5,delay:0.6}} 
-                    className='text-white text-2xl my-5'>Full-Stack Developer | Laravel&Next Stack Enthusiast</motion.h3>
-                    <motion.p
-                    initial={{x:-100,opacity:0}}
-                    whileInView={{x:0,opacity:1}}
-                    transition={{duration:0.5,delay:0.6}} 
-                    className='text-gray-500'>A dedicated full-stack web developer and fifth-year computer science student at ESI SBA. Skilled in Laravel, FilamentPHP, React.js, and Tailwind CSS, with hands-on experience building multi-vendor e-commerce platforms, integrating delivery APIs. Passionate about clean code, SOLID principles, and continuous learning—currently exploring TypeScript, Next.js while pursuing CCNA certification and prototyping IoT solutions.</motion.p>
-                    <motion.a
-                    initial={{x:-100,opacity:0}}
-                    whileInView={{x:0,opacity:1}}
-                    transition={{duration:0.5,delay:0.8}} 
-                    href={cv}
-                    className=' cursor-pointer flex items-center bg-blue-500 w-fit px-3 py-2 rounded-md gap-2 my-5 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#33CCCC,0_0_15px_#33CCCC,0_0_30px_#33CCCC]  shadow-blue-500 border-blue-400 border-2 ' type="button">
-
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2m-8 1V4m0 12-4-4m4 4 4-4" />
-                        </svg>
-
-                        <p className='text-white font-normal'>Download CV</p>
-                    </motion.a>
-
-                    <motion.div
-                    initial={{x:-100,opacity:0}}
-                    whileInView={{x:0,opacity:1}}
-                    transition={{duration:0.5,delay:0.8}} 
-                    className='flex items-center gap-5'>
-                        <a href="https://www.linkedin.com/in/mohamed-abid-4061b8325/"><FaLinkedin className='text-white' size={25} /></a>
-                        <a href="https://github.com/Abidmo07"><FaGithub className='text-white' size={25} /></a>
-                        <a href="https://www.facebook.com/mohamed.abid.610647?locale=fr_FR"><FaFacebook className='text-white' size={25} /></a>
-                    </motion.div>
-
-                </div>
-             <motion.div
-    initial={{opacity:0, scale:0.5}}
-    whileInView={{opacity:1, scale:1}}
-    transition={{duration:1.4, delay:0}} 
-    className='flex justify-center items-center w-full md:w-1/2 relative'>
-    
-    {/* Animated gradient border */}
-    <div className="relative p-1 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 animate-pulse">
-        <div className="bg-gray-950 rounded-full p-2">
-            <img 
-                className='w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl shadow-blue-500/50' 
-                src={ramzi} 
-                alt="Ramzi Borz" 
-            />
-        </div>
-    </div>
-    
-    {/* Floating particles effect */}
-    <div className="absolute inset-0 -z-10">
-        <div className="absolute top-10 left-10 w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-        <div className="absolute top-20 right-16 w-1 h-1 bg-purple-400 rounded-full animate-ping"></div>
-        <div className="absolute bottom-16 left-20 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-1 h-1 bg-blue-300 rounded-full animate-bounce delay-75"></div>
-    </div>
-</motion.div>
-
+        <section id="hero" ref={comp} className='relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--bg-color)] pt-20 px-6'>
+            {/* Background Particles */}
+            <div className="absolute inset-0 z-0">
+                <Particle />
             </div>
-        </>
-    )
+
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between z-10 gap-10">
+                {/* Text Content */}
+                <div className='flex flex-col w-full md:w-1/2 space-y-6'>
+                    <h1 className='hero-text text-5xl md:text-7xl font-bold leading-tight'>
+                        Hi👋, I'm <br />
+                        <span className='text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-cyan)] to-[var(--accent-pink)]'>
+                            Ramzi Borz
+                        </span>
+                    </h1>
+
+                    <h3 className='hero-text text-2xl md:text-3xl font-medium text-gray-300'>
+                        Full-Stack Developer | <span className='text-[var(--accent-cyan)]'>Laravel & Next.js</span>
+                    </h3>
+
+                    <p className='hero-text text-gray-400 text-lg max-w-xl leading-relaxed'>
+                        Creating stunning digital experiences with code. Passionate about clean architecture, SOLID principles, and building scalable applications. Currently mastering TypeScript & Next.js.
+                    </p>
+
+                    <div className='hero-text flex flex-wrap gap-4 mt-8'>
+                        <a
+                            href={cv}
+                            download
+                            className='px-8 py-3 bg-[var(--accent-cyan)] text-black font-bold rounded-full transition-all hover:shadow-[0_0_20px_rgba(0,242,234,0.6)] hover:scale-105 active:scale-95'
+                        >
+                            Download CV
+                        </a>
+
+                        <div className='flex items-center gap-6 ml-4'>
+                            <a href="https://www.linkedin.com/in/mohamed-abid-4061b8325/" className='text-white hover:text-[var(--accent-cyan)] transition-colors transform hover:scale-125'>
+                                <FaLinkedin size={30} />
+                            </a>
+                            <a href="https://github.com/Abidmo07" className='text-white hover:text-[var(--accent-cyan)] transition-colors transform hover:scale-125'>
+                                <FaGithub size={30} />
+                            </a>
+                            <a href="https://www.facebook.com/" className='text-white hover:text-[var(--accent-cyan)] transition-colors transform hover:scale-125'>
+                                <FaFacebook size={30} />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 3D Image Section */}
+                <div
+                    className='hero-image w-full md:w-1/2 flex justify-center perspective-1000'
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    <div ref={imageRef} className='relative w-80 h-80 md:w-96 md:h-96 rounded-full p-2 bg-gradient-to-tr from-[var(--accent-cyan)] to-[var(--accent-pink)] shadow-[0_0_50px_rgba(0,242,234,0.3)]'>
+                        <div className='w-full h-full rounded-full overflow-hidden bg-[var(--bg-color)] relative z-10'>
+                            <img
+                                src={ramzi}
+                                alt="Ramzi Borz"
+                                className='w-full h-full object-cover transform hover:scale-110 transition-transform duration-500'
+                            />
+                        </div>
+                        {/* Floating Tech Orbs */}
+                        {/* We could add floating icons here too using absolute positioning */}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }

@@ -1,17 +1,13 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <div
-
-      className='bg-gray-800 py-3'>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className='text-gray-300 text-center' >© 2025 Abid Ramzi. All rights reserved.</motion.p>
-    </div>
+    <footer className='bg-black py-8 border-t border-white/10'>
+      <div className="container mx-auto px-6 text-center">
+        <p className='text-gray-500 text-sm'>
+          © {new Date().getFullYear()} <span className="text-white font-semibold">Ramzi Borz</span>. All rights reserved.
+        </p>
+      </div>
+    </footer>
   )
 }

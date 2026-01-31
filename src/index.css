@@ -1,9 +1,77 @@
 @import "tailwindcss";
 
-html{
-    scroll-behavior: smooth;
+:root {
+  --font-body: 'Outfit', sans-serif;
+  --bg-color: #050510;
+  --accent-cyan: #00f2ea;
+  --accent-pink: #ff0050;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  cursor: none; /* Hide default cursor */
 }
 
 body {
-  @apply overflow-x-hidden;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Utility for glass */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Cursor Container */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-cyan);
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent-cyan);
+  transition: width 0.2s, height 0.2s;
+}
+
+body:hover .cursor-outline {
+    opacity: 1;
 }
